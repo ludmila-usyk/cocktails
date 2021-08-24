@@ -60,29 +60,27 @@ const refs = {
   form: document.querySelector('#form'),
   input: document.querySelector('#search'),
   container: document.querySelector('.container'),
-  // more: document.querySelector('#more')
 }
 
 // //посылает запрос и обрабатывает ответ
-// const hendlerSubmit = (e) => {
-//   e.preventDefault()
-//   const value = refs.input.value
-// //  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${value}`)
-//   .then(response => response.json())
-//   .then(result => renderCollection(result.drinks))
-//   .catch(err => console.log(err))
-// }
-
 const hendlerSubmit = (e) => {
   e.preventDefault()
-  // innerHTML - очистить разметку
-  // refs.container.innerHTML = '';
   const value = refs.input.value
-  axios.get(`https:www.thecocktaildb.com/api/json/v1/1/search.php?s=${value}`)
-  .then(result => renderCollection(result.data.drinks))
+//  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${value}`)
+  .then(response => response.json())
+  .then(result => renderCollection(result.drinks))
   .catch(err => console.log(err))
 }
 
+// const hendlerSubmit = (e) => {
+//   e.preventDefault()
+//   // innerHTML - очистить разметку
+//   // refs.container.innerHTML = '';
+//   const value = refs.input.value
+//   axios.get(`https:www.thecocktaildb.com/api/json/v1/1/search.php?s=${value}`)
+//   .then(result => renderCollection(result.data.drinks))
+//   .catch(err => console.log(err))
+// }
 
 //создает елемент интерфейса
 function createItem ({strDrinkThumb, strDrink, strAlcoholic, strIngredient1, strIngredient2, strIngredient3, strIngredient4, strIngredient5}) {
