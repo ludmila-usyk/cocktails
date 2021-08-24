@@ -61,4 +61,4 @@ module.exports=require("./lib/axios");
 },{"./lib/axios":"nUiQ"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss");var n=e(require("axios"));function e(n){return n&&n.__esModule?n:{default:n}}const t={form:document.querySelector("#form"),input:document.querySelector("#search"),container:document.querySelector(".container")},r=n=>{n.preventDefault();t.input.value.then(n=>n.json()).then(n=>s(n.drinks)).catch(n=>console.log(n))};function i({strDrinkThumb:n,strDrink:e,strAlcoholic:r,strIngredient1:i,strIngredient2:s,strIngredient3:c,strIngredient4:l,strIngredient5:o}){const u=`<article>\n    <img src='${n}' alt='${e}'/>\n    <p>${e}</p>\n    <h3 class="alco">${r}</h3>\n    <ul>\n      <li>${i}</li>\n      <li>${s}</li>\n      <li>${c}</li>\n      <li>${l}</li>\n      <li>${o}</li>\n    </ul>\n  </article>\n`;t.container.insertAdjacentHTML("beforeend",u)}function s(n){n.forEach(n=>i(n))}t.form.addEventListener("submit",r);
 },{"./sass/main.scss":"clu1","axios":"dZBD"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-js-hw-12-countries/src.2866f0d1.js.map
+//# sourceMappingURL=/cocktails/src.2866f0d1.js.map
