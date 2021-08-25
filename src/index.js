@@ -66,7 +66,7 @@ const refs = {
 const hendlerSubmit = (e) => {
   e.preventDefault()
   const value = refs.input.value
-//  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${value}`)
+ fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${value}`)
   .then(response => response.json())
   .then(result => renderCollection(result.drinks))
   .catch(err => console.log(err))
