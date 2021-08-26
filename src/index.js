@@ -1,26 +1,6 @@
 import './sass/main.scss';
 import axios from 'axios';
 
-// import { alert, info, success, error } from '../node_modules/@pnotify/core/dist/PNotify.js';
-// import '@pnotify/core/dist/BrightTheme.css';
- 
-//   success({
-//     text: 'Notice me, senpai!'
-//   });
-
-
-//   import debounce from 'lodash.debounce';
-//   debounce(test, 2000);
-
-//   function test () {
-//   console.log('object')
-// };
-
-
-
-
-
-
 
 // Search cocktail by name
 // www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
@@ -65,22 +45,13 @@ const refs = {
 // //посылает запрос и обрабатывает ответ
 const hendlerSubmit = (e) => {
   e.preventDefault()
+  clearContainer ();
+  clearInput ();
   const value = refs.input.value
- fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${value}`)
-  .then(response => response.json())
-  .then(result => renderCollection(result.drinks))
+  axios.get(`https:www.thecocktaildb.com/api/json/v1/1/search.php?s=${value}`)
+  .then(result => renderCollection(result.data.drinks))
   .catch(err => console.log(err))
 }
-
-// const hendlerSubmit = (e) => {
-//   e.preventDefault()
-//   // innerHTML - очистить разметку
-//   // refs.container.innerHTML = '';
-//   const value = refs.input.value
-//   axios.get(`https:www.thecocktaildb.com/api/json/v1/1/search.php?s=${value}`)
-//   .then(result => renderCollection(result.data.drinks))
-//   .catch(err => console.log(err))
-// }
 
 //создает елемент интерфейса
 function createItem ({strDrinkThumb, strDrink, strAlcoholic, strIngredient1, strIngredient2, strIngredient3, strIngredient4, strIngredient5}) {
@@ -95,8 +66,7 @@ function createItem ({strDrinkThumb, strDrink, strAlcoholic, strIngredient1, str
       <li>${strIngredient4}</li>
       <li>${strIngredient5}</li>
     </ul>
-  </article>
-`
+  </article>`
 refs.container.insertAdjacentHTML('beforeend', article)
 }
 
@@ -106,3 +76,10 @@ function renderCollection (arr) {
 }
 
 refs.form.addEventListener('submit', hendlerSubmit);
+
+function clearContainer () {
+  refs.container.innerHTML = '';
+}
+function clearInput () {
+  refs.input.innerHTML = '';
+}
