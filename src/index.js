@@ -36,6 +36,10 @@ import axios from 'axios';
 // www.thecocktaildb.com/api/json/v1/1/filter.php?g=Cocktail_glass
 // www.thecocktaildb.com/api/json/v1/1/filter.php?g=Champagne_flute
 
+
+import { alert } from  '../node_modules/@pnotify/core/dist/PNotify.js';
+import '@pnotify/core/dist/BrightTheme.css';
+
 const refs = {
   form: document.querySelector('#form'),
   input: document.querySelector('#search'),
@@ -46,12 +50,12 @@ const refs = {
 const hendlerSubmit = (e) => {
   e.preventDefault()
   clearContainer ();
-  clearInput ();
   const value = refs.input.value
   axios.get(`https:www.thecocktaildb.com/api/json/v1/1/search.php?s=${value}`)
   .then(result => renderCollection(result.data.drinks))
-  .catch(err => console.log(err))
-}
+  .catch(err => 
+     { alert ({text: 'Not found.' })}
+)}
 
 //создает елемент интерфейса
 function createItem ({strDrinkThumb, strDrink, strAlcoholic, strIngredient1, strIngredient2, strIngredient3, strIngredient4, strIngredient5}) {
@@ -80,6 +84,4 @@ refs.form.addEventListener('submit', hendlerSubmit);
 function clearContainer () {
   refs.container.innerHTML = '';
 }
-function clearInput () {
-  refs.input.innerHTML = '';
-}
+
