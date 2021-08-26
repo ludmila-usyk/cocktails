@@ -58,7 +58,7 @@ const hendlerSubmit = (e) => {
 )}
 
 //создает елемент интерфейса
-function createItem ({strDrinkThumb, strDrink, strAlcoholic, strIngredient1, strIngredient2, strIngredient3, strIngredient4, strIngredient5}) {
+function createItem ({strDrinkThumb, strDrink, strAlcoholic, strIngredient1, strIngredient2, strIngredient3, strIngredient4, strIngredient5, strIngredient6, strIngredient7}) {
   const article = `<article>
     <img src='${strDrinkThumb}' alt='${strDrink}'/>
     <p>${strDrink}</p>
@@ -69,6 +69,8 @@ function createItem ({strDrinkThumb, strDrink, strAlcoholic, strIngredient1, str
       <li>${strIngredient3}</li>
       <li>${strIngredient4}</li>
       <li>${strIngredient5}</li>
+      <li>${strIngredient6}</li>
+      <li>${strIngredient7}</li>      
     </ul>
   </article>`
 refs.container.insertAdjacentHTML('beforeend', article)
