@@ -51,7 +51,7 @@ const hendlerSubmit = (e) => {
   e.preventDefault()
   clearContainer ();
   const value = refs.input.value
-  axios.get(`https:www.thecocktaildb.com/api/json/v1/1/search.php?s=${value}`)
+  axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${value}`)
   .then(result => renderCollection(result.data.drinks))
   .catch(err => 
      { alert ({text: 'Not found.' })}
