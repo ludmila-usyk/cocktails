@@ -44,6 +44,7 @@ const refs = {
   form: document.querySelector('#form'),
   input: document.querySelector('#search'),
   container: document.querySelector('.container'),
+  ul: document.querySelector('.test'),
 }
 
 // //посылает запрос и обрабатывает ответ
@@ -64,13 +65,7 @@ function createItem ({strDrinkThumb, strDrink, strAlcoholic, strIngredient1, str
     <p>${strDrink}</p>
     <h3 class="alco">${strAlcoholic}</h3>
     <ul>
-      <li>${strIngredient1}</li>
-      <li>${strIngredient2}</li>
-      <li>${strIngredient3}</li>
-      <li>${strIngredient4}</li>
-      <li>${strIngredient5}</li>
-      <li>${strIngredient6}</li>
-      <li>${strIngredient7}</li>      
+   <li class="test"></li>
     </ul>
   </article>`
 refs.container.insertAdjacentHTML('beforeend', article)
@@ -86,4 +81,23 @@ refs.form.addEventListener('submit', hendlerSubmit);
 function clearContainer () {
   refs.container.innerHTML = '';
 }
+
+
+function getin(drink) {
+  const ingredients = [];
+    for (let i = 1; i <= 20; i++) {
+      if (drink[`strIngredient${i}`]) {
+        ingredients.push(drink[`strIngredient${i}`]);
+      } else {
+        break;
+      }
+    }
+  return ingredients;
+}
+refs.ul.addEventListener('submit', getin)
+
+//  <h2>Ingredients</h2>
+// <ul>
+//   ${ingredients.map(ing => `<li>${ing}</li>`).join('')}
+// </ul>
 
