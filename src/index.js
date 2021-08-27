@@ -65,7 +65,13 @@ function createItem ({strDrinkThumb, strDrink, strAlcoholic, strIngredient1, str
     <p>${strDrink}</p>
     <h3 class="alco">${strAlcoholic}</h3>
     <ul>
-   <li class="test"></li>
+   <li class="test">${strIngredient1}</li>
+   <li class="test">${strIngredient2}</li>
+   <li class="test">${strIngredient3}</li>
+   <li class="test">${strIngredient4}</li>
+   <li class="test">${strIngredient5}</li>
+   <li class="test">${strIngredient6}</li>
+   <li class="test">${strIngredient7}</li>
     </ul>
   </article>`
 refs.container.insertAdjacentHTML('beforeend', article)
@@ -83,18 +89,19 @@ function clearContainer () {
 }
 
 
-function getin(drink) {
-  const ingredients = [];
-    for (let i = 1; i <= 20; i++) {
-      if (drink[`strIngredient${i}`]) {
-        ingredients.push(drink[`strIngredient${i}`]);
-      } else {
-        break;
-      }
-    }
-  return ingredients;
-}
-refs.ul.addEventListener('submit', getin)
+// function getin(drink) {
+//   const ingredients = [];
+//     for (let i = 1; i <= 20; i++) {
+//       if (drink[`strIngredient${i}`]) {
+//         ingredients.push(drink[`strIngredient${i}`]);
+//       } else {
+//         break;
+//       }
+//     }
+//   return ingredients;
+// }
+// refs.ul.addEventListener('submit', getin)
+
 
 //  <h2>Ingredients</h2>
 // <ul>
